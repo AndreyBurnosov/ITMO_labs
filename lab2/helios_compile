@@ -1,0 +1,18 @@
+mkdir bin
+javac -sourcepath src -d bin -classpath lib_jar/Pokemon.jar src/lab2/Program.java
+
+
+// для проверки java -classpath bin:lib_jar/Pokemon.jar lab2.Program
+
+mkdir lib
+cd lib
+
+jar -xvf ../lib_jar/Pokemon.jar ru/
+
+cd ..
+
+cp -r bin/* lib/
+
+jar -cef lab2.Program program.jar -C lib .
+
+java -jar program.jar
