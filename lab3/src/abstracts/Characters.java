@@ -1,14 +1,32 @@
 package abstracts;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Characters {
-    protected String name;
-    public String getName() {
-        return name;
+    private String name;
+    private int age;
+    private List<Items> storage;
+    public void addItem(Items item) {
+        this.storage.add(item);
+    }
+
+    public void clearStorage() {
+        storage.clear();
+    }
+
+    public void removeItem(Items item) {
+        storage.remove(item);
     }
     public void setName(String name){
         this.name = name;
+    }
+    public String getName(){
+        if (this.name == null) {
+            return "Аноним";
+        }
+        return(this.name);
     }
     @Override
     public String toString() {

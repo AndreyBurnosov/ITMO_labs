@@ -1,9 +1,9 @@
 package enums;
 
 public enum Symbols {
-    SKULL("Череп"),
+    SKULL("череп"),
     BONES("кости"),
-    POISON("яд");
+    POISON("\"Яд!\"");
     private String name;
     Symbols (String name){
         this.name = name;

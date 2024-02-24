@@ -1,22 +1,26 @@
 package classes;
 
 import enums.Food;
-import enums.Symbols;
+import enums.Gender;
+import enums.Tastes;
+
+import java.util.List;
 
 public class Story {
     public static void storyTelling(){
-        Alisa alisa = new Alisa();
-        alisa.setName("Алиса");
-        Bottle bottle = new Bottle();
+        Bottle bottle = new Bottle(List.of());
         bottle.setName("бутылочка");
-        Bottle.Content content = new Bottle.Content();
-        content.setName("содержимое");
-        System.out.printf("На этой %s %s %s, %s, надписи %s.\n", bottle.getName(), bottle.notExist(),
-                Symbols.getName(Symbols.SKULL), Symbols.getName(Symbols.BONES), Symbols.getName(Symbols.POISON));
-        System.out.printf("%s %s её %s.\n", alisa.getName(), alisa.toTry(), content.getName());
-        System.out.printf("%s %s, %s смесь из %s, %s, %s, %s, %s и %s.\n", content.getName(), content.beTaste(), content.beSame(),
-                Food.getName(Food.OMELET), Food.getName(Food.TOFFEE), Food.getName(Food.CHERRY_PIE), Food.getName(Food.PINEAPPLE),
-                Food.getName(Food.ROAST_TURKEY), Food.getName(Food.CROUTONS_WITH_BUTTER));
-        System.out.printf("%s %s, как %s %s.\n", alisa.getName(), alisa.notNotice(), bottle.getName(), bottle.becomeEmpty());
+        bottle.pour(List.of(Food.OMELET, Food.TOFFEE, Food.PINEAPPLE, Food.CHERRY_PIE,
+                Food.CROUTONS_WITH_BUTTER, Food.ROAST_TURKEY), Tastes.TASTY, "содержимое");
+
+        Human alisa = new Human();
+        alisa.setName("Алиса");
+        alisa.setGender(Gender.FEMALE);
+        alisa.setAge(15);
+        alisa.addItem(bottle);
+
+        System.out.printf("На этой %s %s.\n", bottle.getName(), bottle.notExist());
+        System.out.printf("%s %s.\n", alisa.getName(), alisa.toTry());
+        System.out.printf("%s не заметила, как %s оказалась %s.\n", alisa.getName(), bottle.getName(), bottle.isFilled());
     }
 }

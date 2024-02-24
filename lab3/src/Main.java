@@ -1,4 +1,3 @@
-import classes.Alisa;
 import classes.Story;
 
 // Однако на этой бутылочке не было ни черепа, ни костей, ни надписи "Яд!", и
@@ -8,6 +7,5 @@ import classes.Story;
 public class Main {
     public static void main(String[] args) {
         Story.storyTelling();
-
     }
 }
